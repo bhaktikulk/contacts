@@ -10,7 +10,13 @@ const port = 5000;
 
 // Middleware setup
 app.use(bodyParser.json());  // Parse JSON datamongodb+srv://<db_username>:<db_password>@cluster.hozl3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster
-app.use(cors());  // Allow cross-origin requests
+app.use(cors(
+    {
+    origin:["https://contacts-front-sigma.vercel.app"],
+    methods:["POST","GET"],
+    credentials:true
+    }
+));  // Allow cross-origin requests
 
 // MongoDB Atlas connection URI
 const dbURI = 'mongodb+srv://Bhakti12:12345678a@cluster.hozl3.mongodb.net/contact?retryWrites=true&w=majority';
